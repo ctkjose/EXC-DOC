@@ -1,5 +1,5 @@
 ## Documentation Version 0.1.0 ##
-[Documentation Index](./doc_index.md)[[BR]]
+[Documentation Index](./doc_index.md)<BR>
 
 ## Getting Started ##
 
@@ -25,12 +25,9 @@ $options['controllers']=[
 ?>
 ```
 
-
-
-
 ### Your controllers ###
 
-The bread and butter of the your app are controllers. A traditional UI based application uses controllers of type `viewController`, services and cli applications use the `processController`. You will create instances of one of these to implement your app.
+The bread and butter of the your app are controllers. A traditional UI based application uses controllers of type `viewController`, services and CLI applications use the `processController`. You will create instances of one of these to implement your app.
 
 Lets create an instance of `viewController` for an employee record, our controller will be named "record".
 
@@ -60,7 +57,7 @@ class recordController extends \exc\controller\viewController {
 }
 ```
 
-In EXC a function in your controller is invoked by a **message** or an **action**. You can receive an **action** from your client side of the app or you may get a **message** by the framework itself.
+In EXC a function in your controller is invoked by a **message** or an **action**. You can receive an **action** from your client side of the app or you may get a **message** from the framework itself.
 
 
 
@@ -85,7 +82,7 @@ In the other hand the `client` can post an action to your server side controller
 	}
 ```
 
-#### Building the user interface ####
+### Building the user interface ###
 The user interface is build using views and EXC's built-in templating functionality.
 
 A view is used to build your user interface. In EXC we can manipulate views from the server side prior to serving the content to the browser or dynamically in the client side.
