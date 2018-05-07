@@ -9,4 +9,6 @@ EXC combines a client-side JavaScript framework with a backend framework in PHP.
 Both loosely couple yet fully integrated.
 
 
-Express Code
+## Documentation ##
+
+[Getting Started](./doc_getting_started.md)

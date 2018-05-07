@@ -1,3 +1,6 @@
+## Documentation Version 0.1.0 ##
+[Documentation Index](./doc_index.md)[[BR]]
+
 ## Views ##
 
 A view is used to build your user interface. In EXC we can manipulate views from the server side prior to serving the content to the browser or dinamically in the client side.

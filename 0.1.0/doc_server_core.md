@@ -1,9 +1,12 @@
+## Documentation Version 0.1.0 ##
+[Documentation Index](./doc_index.md)[[BR]]
+
 # EXC Core #
 
 
 ## Extendable Objects ##
 
-The **trait** ```\exc\core\objectExtendable``` allows you to add methods to an object dynamically at runtime using php anonymous functions.
+The **trait** `\exc\core\objectExtendable` allows you to add methods to an object dynamically at runtime using php anonymous functions.
 
 ```php
 <?php
@@ -24,11 +27,11 @@ $o->doThis(); //lets call our new method...
 ```
 
 ### Using delegation with objectExtendable ###
-An object that uses the trait ```\exc\core\objectExtendable``` has two helper functions to obtain and set delegates.
+An object that uses the trait `\exc\core\objectExtendable` has two helper functions to obtain and set delegates.
 
-The method ```delegateFor($name)``` will return an anonymous function for an object's method. The anonymous function returned still executes under the scope of the owner object. Things like ```$this``` will still work and would point to the owner instance.  
+The method `delegateFor($name)` will return an anonymous function for an object's method. The anonymous function returned still executes under the scope of the owner object. Things like `$this` will still work and would point to the owner instance.  
 
-The method ```delegate($name, $fn)``` allows you to set or add a method to an object that uses objectExtendable.
+The method `delegate($name, $fn)` allows you to set or add a method to an object that uses objectExtendable.
 
 ```php
 <?php
