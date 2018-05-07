@@ -11,7 +11,7 @@ The **element** is the basic object used in EXC for most of its UI interactions 
 **Properties of an element:**
 
 | Name | Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | isElement | boolean | indicates that this JQUERY object has the element functionality. |
 | uiw | string | Name of component represented by this element.
 | tag | string | Name of the actual html element represented for example "div". |
