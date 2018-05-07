@@ -1,0 +1,24 @@
+
+cd: /Library/WebServer/Documents/exc
+Error Log: tail -f /var/log/apache2/error_log
+
+Testing:
+http://localhost/exc/app/test/employee.main
+
+
+8/JAN/17  Refactoring getting to work views
+
+
+
+
+COMPONENTS:
+
+https://developers.google.com/web/fundamentals/web-components/customelements#extendhtml
+
+
+
+ROUTING
+
+/dir/action
+/dir/controller.action
+/dir/
