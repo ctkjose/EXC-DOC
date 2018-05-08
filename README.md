@@ -11,4 +11,4 @@ EXC is meant to be compatible with most hosting services that run PHP without re
 
 ## DOCUMENTATION ##
 
-[Documentation Release 0.1.0](./0.1.0/doc_index.md)<BR>
+[Documentation Release 0.1.0](doc_index.md)<BR>
