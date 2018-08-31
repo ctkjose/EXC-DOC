@@ -1,5 +1,5 @@
 ## EXC Documentation Version 0.1.0 ##
-[Documentation Index](./doc_index.md)[[BR]]
+[Documentation Index](./doc_index.md)<br>
 
 ## Formula Helper ##
 

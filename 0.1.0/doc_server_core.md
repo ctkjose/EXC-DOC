@@ -1,12 +1,12 @@
 ## Documentation Version 0.1.0 ##
-[Documentation Index](./doc_index.md)[[BR]]
+[Documentation Index](./doc_index.md)<br>
 
 # EXC Core #
 
 
 ## Extendable Objects ##
 
-The **trait** `\exc\core\objectExtendable` allows you to add methods to an object dynamically at runtime using php anonymous functions.
+The **trait**  `\exc\core\objectExtendable` allows you to add methods to an object dynamically at runtime using php anonymous functions.
 
 ```php
 <?php

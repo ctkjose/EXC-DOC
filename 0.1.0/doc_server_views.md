@@ -1,17 +1,25 @@
 ## Documentation Version 0.1.0 ##
-[Documentation Index](./doc_index.md)[[BR]]
+[Topics](./doc_index.md) | [Views](./doc_server_views.md) | [View Class](./doc_php_class_views.md)<br>
 
 ## Views ##
 
-A view is used to build your user interface. In EXC we can manipulate views from the server side prior to serving the content to the browser or dinamically in the client side.
+A view holds your actual html or the fragments of html used to build your user interface. In EXC we can manipulate views from the server side prior to serving the content to the browser or dynamically in the client side.
+
+A view has placeholders that you can manipulate from code, even add content from other views among other features.
+
+You create a **view** for your app default layout/template. You can have different elements each in a separate view, for example a view with a form to edit or add a record, or a view for a particular header or menu.
+
+The backend can push dynamic content to the app running in the browser using views, for example a dialog to edit some information.
+
+## Views in your PHP backend ##
+
+### Creating a view ###
 
 A **view** is a php file named `view.myname.php`, where `myname` is the actual name of your view.
 
 > **NOTE:** The view can be an HTML file like  `view.myname.html`.
 
 You place your view files in a folder named `views` in your app folder. This is where EXC would look for them by default.
-
-### Creating a view ###
 
 A view file contains the actual HTML code, it is our template, like for example:
 
@@ -31,41 +39,48 @@ You can add value placeholders that you replace from PHP. For example a placehol
 
 In the example above we have the placeholders `{{username}}`, `{{contents}}` and `{{title}}`.
 
-In PHP we set the value of a placeholder with the `set($html)` method:
+### The default view ###
 
+An EXC app has a main view called the **default view**. You load a view as your default view using the method `createDefaultView(name)`:
+```PHP
+$view = \exc\ui\views\manager::createDefaultView("myname");
+```
+Your default view will be send to the browser.
+
+Once a default view is set you can obtain the default view with:
+```PHP
+$view = \exc\ui\views\manager::getDefaultView();
+```
+
+Besides your default view you can have as many views as you need. You can have a view with a form, with a header and any other fragment of html that you would like to reuse.
+
+You get another view by its name using the function `getView($name)`:
+```PHP
+$view = \exc\ui\views\manager::getView("student_record");
+```
+
+### Using your view in PHP ###
+
+In PHP we set the value of a placeholder with the `set($html)` method:
 ```PHP
 $username = "supercoolcat99";
 $view->username->set($username);
 ```
-
 You can append to a placeholder with the `write($html)` method:
 ```PHP
 $view->contents->write($someHTML);
 $view->contents->write($moreHTML);
 ```
-
-### The default view ###
-
-An EXC app has a main view called the **default view**. The contents of your default view will be send to the browser. You load a view as your default view using the method `createDefaultView(name)`:
-
+You can add the contents of another view using `write()`:
 ```PHP
-$view = \exc\ui\views\manager::createDefaultView("myname");
+$viewHeader = \exc\ui\views\manager::getView("record_header");
+$viewHeader->title->write("Welcome Jose");
+
+$view->contents->write($viewHeader);
 ```
 
-Once a default view is set you can obtain the default view with:
-```JS
-$view = \exc\ui\views\manager::getDefaultView();
-```
-
-You can get a view other than the default view using:
-
-```
-$view = \exc\ui\views\manager::getView("student_record");
-```
 
 ### Beyond placeholders ###
-
-
 
 You can set values that can be used as placeholders in all your views using a **@CONSTANT**.
 
@@ -163,64 +178,3 @@ $options['using'] = [
 	],
 ];
 ```
-
-
-## Class exc\ui\views\view ##
-
-### Class Methods ###
-```
-public static function createWithFile($path, $name='default')
-```
-
-Factory method to create an instance of `view` from a file.
-
-```
-public static function createWithSource($source, $name='default')
-```
-Factory method to create an instance of `view` from a $source string containing HTML.
-
-
-```
-public static function constantSetValue($key, $value)
-public static function constantSetValue($key1, $value1, $key2, $value2...)
-public static function constantSetValue($anArrayOfValuePairs)
-```
-Sets the value of a **@CONTANT** placeholder.
-
-```
-public static function constantCopyValues($anArrayOfValuePairs, $prefix='')
-```
-Creates a **@CONTANT** placeholder for each key in an array of value-pairs.
-
-
-### Object Methods ###
-
-```
-$viewInstance->placeholderName->set($html)
-```
-Call the `set($HTML)` method on a placeholder to sets its contents.
-
-```
-$viewInstance->placeholderName->write($html)
-```
-
-Call the `write($HTML)` method on a placeholder to append to its contents.
-
-```
-$viewInstance->js->src($urlToJS)
-$viewInstance->css->src($urlToCSS)
-$viewInstance->css->src($urlToCSS, $mediaType)
-```
-
-Call the helper method `src()` on the `js` or `css` placeholders to create a script or style tag.
-
-
-```
-$viewInstance->getHTML()
-```
-Renders the view and returns the compiled HTML code.
-
-```
-$viewInstance->initializeSource($srcHTML)
-```
-Initialize a view with its HTML source.

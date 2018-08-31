@@ -40,13 +40,13 @@ class recordController extends \exc\controller\viewController {
 	public function initialize(){
 		//this is called when EXC creates the instance of your controller
 	}
-	public function action_main(){
+	public function event_action_main(){
 		//this is our default action
 	}
-	public function action_show(){
+	public function event_action_show(){
 		//show our employee record...
 	}
-	public function message_appInit(){
+	public function event_appInit(){
 		//this is a message function
 		//this function will be executed when an ```app_ready``` message is published
 	}
@@ -57,18 +57,18 @@ class recordController extends \exc\controller\viewController {
 }
 ```
 
-In EXC a function in your controller is invoked by a **message** or an **action**. You can receive an **action** from your client side of the app or you may get a **message** from the framework itself.
+In EXC a function in your controller is invoked by an **event**. You can receive an **event** from your client side of the app or you may get an **event** from the framework itself. In general **events** send by your client side start with in their name "action".
 
 
 
-Any controller can listen to a "message" by creating a message function. A message function is simply a function named `message_` + `message_name`.
+Any controller can listen to an "event" by creating a handler function. A handler function is simply a function named `event_` + `event_name`.
 
 
 
-For example when the app is ready a message `appReady` will be published, to execute code on the `appReady` message we just add the function `message_appReady` to our controller.
+For example when the app is ready an event `appReady` will be published, to execute code on the `appReady` message we just add the function `event_appReady` to our controller.
 
 ```php
-	public function message_appReady(){
+	public function event_appReady(){
 		//this is a message function
 		//this function will be executed when an ```app_ready``` message is published
 	}
@@ -77,7 +77,7 @@ See the section on messages to learn more on the different messages that EXC wil
 
 In the other hand the `client` can post an action to your server side controller, lets  said the action `showRecord` to show an employee record. A function for this action will be simply:
 ```php
-	public function action_showRecord(){
+	public function event_action_showRecord(){
 		//my code here...
 	}
 ```

@@ -1,5 +1,5 @@
 ## Documentation Version 0.1.0 ##
-[Documentation Index](./doc_index.md)[[BR]]
+[Documentation Index](./doc_index.md)<br>
 
 ## Controllers ##
 
@@ -11,9 +11,9 @@ The bread and butter of the SSF are controllers, they manage the lifecycle of yo
 
 There are different types of controllers each with additional functionality depending on your type of application or tasks.
 
-A traditional UI based application uses controllers of type `viewController`, services and cli applications use the `processController`. You will create intances of one of this to implement your app.
+A traditional UI based application uses controllers of type `viewController`, services and cli applications use the `processController`. You will create instances of one of this to implement your app.
 
-EXC creates other controller in addition to yours. Your application itself is orchestrated by an instance of a `appController`.
+EXC creates other controllers in addition to yours. Your application itself is orchestrated by an instance of a `appController`.
 
 ### viewController ###
 
@@ -29,12 +29,16 @@ class recordController extends \exc\controller\viewController {
 	public function initialize(){
 		//this is called when EXC creates the instance of your controller
 	}
-	public function main(){
-		//this is our default message
+	public function event_action_main(){
+		//this is our default message from the browser
 	}
-	public function message_app_ready(){
+	public function event_appInit(){
 		//this is a message function
-		//this function will be executed when an ```app_ready``` message is published
+		//this function will be executed when an ```appInit``` message is published
+	}
+	public function event_appStart(){
+		//this is a message function
+		//this function will be executed when an ```appStart``` message is published
 	}
 }
 ?>
