@@ -1,27 +1,38 @@
 ## Documentation Version 0.1.0 ##
 [Topics](./doc_index.md) | [Views](./doc_server_views.md) | [View Class](./doc_php_class_views.md)<br>
 
-## Class exc\ui\views\manager ##
+## Class exc\views\manager ##
 
 ### View Manager Methods ###
 ```php
-$viewInstance = \exc\ui\views\manager::createDefaultView($viewName);
+$viewInstance = \exc\views\manager::createDefaultView($viewName);
 ```
 Initialize the application default view.
 
 ```php
-$viewInstance = \exc\ui\views\manager::getDefaultView();
+$viewInstance = \exc\views\manager::getDefaultView();
 ```
 Get the instance of your default view.
 
 ```php
-$viewInstance = \exc\ui\views\manager::getView($viewName);
+$viewInstance = \exc\views\manager::getView($viewName);
 ```
 Get an instance of a view.
 
-## Class exc\ui\views\view ##
+## Class exc\views\view ##
 
 ### Class Methods ###
+```php
+public static function default($viewInstance)
+public static function default($viewName)
+```
+Sets and returns an instance of the default view. You may omit the $viewName if you have configured the name of your default view in your config option "views.default". for your "app.php" file.
+
+```php
+public static function default()
+```
+Returns an instance of the default view.
+
 ```php
 public static function createWithFile($path, $name='default')
 ```

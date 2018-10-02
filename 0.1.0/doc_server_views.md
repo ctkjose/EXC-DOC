@@ -115,12 +115,11 @@ Use the **#view** directive to include the contents of another view:
 ```
 
 Use the **#file** directive to include a file:
-
 ```html
 {{#file /absolute/path/file.js}}
 ```
-You can use `@CONSTANTS` with **#file**, for example the constants `@BASE` and `@CONTROLLER_DIRECTORY`:
 
+You can use `@CONSTANTS` with **#file**, for example the constants `@BASE` and `@CONTROLLER_DIRECTORY`:
 ```HTML
 {{#file @BASE/file.js}}
 

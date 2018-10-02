@@ -15,14 +15,14 @@ The **element** is the basic object used in EXC for most of its UI interactions 
 | Name | Type | Description |
 | --- | --- | --- |
 | isElement | boolean | indicates that this JQUERY object has the element functionality. |
-| uiw | string | Name of component represented by this element.
+| uiw | string | Name of component represented by this element. |
 | tag | string | Name of the actual html element represented for example "div". |
-| elementName | string | The value of the html attribute ```name``` if one is present. |
-| node | DOM element | The instance of the DOM element represented by this element. Similar to ```o[0]``` in JQUERY, where ```o``` is a JQUERY object. |
+| elementName | string | The value of the html attribute `name` if one is present. |
+| node | DOM element | The instance of the DOM element represented by this element. Similar to `o[0]` in JQUERY, where `o` is a JQUERY object. |
 
 
 ### Setting Properties in an EXC Element ###
-In an element you may store private data using the function ```property()```, for example:
+In an element you may store private data using the function `property()`, for example:
 
 ```javascript
 	var o = exc.$("field_emp_name");
@@ -36,7 +36,7 @@ In an element you may store private data using the function ```property()```, fo
 
 ### Getting an EXC Element ###
 
-You may have noticed the helper function ```exc.$( )``` used to get an element. There is also the global function ```jq()``` .
+You may have noticed the helper function `exc.$( )` used to get an element. There is also the global function `jq()` .
 
 These functions may take a selector, a JQUERY object, a DOM element, the name of a DOM element or the ID of a DOM element.
 
@@ -51,13 +51,13 @@ EXC adds many extensions to the default JQUERY object that are available to any 
 | -- | -- | -- | -- |
 | setter | function | function(component, value) | **Optional** Called to set the value of the widget represented by this component. Must return the instance of THIS to enable chaining. |
 | getter | function | function(component) | **Optional** Returns the value of the widget represented by this component. |
-| vs | string or plain object | | **Optional** A string with the name of a build in value provider interface (eg: ```"value"```, ```"attr"```, ```"hidden"```) or a plain object with a ```getter``` function and a ```setter``` function.<br><br>The signature of a ```getter``` function is ```function(elm)``` and must return a value.<br><br>The signature of a ```setter``` function is ```function(elm, value)``` and must return the elm passed to enable chaining. <br><br>You may use the ```getter``` or ```setter``` functions instead. |
-| propertyChanged | callback | function(name, oldValue, newValue) | **Optional**  Function called when the properties of a component have changed. This callback runs when an attribute is changed by a call to ```component.set(n,v)``` not when they are changed by ```component.property(n,v)```. |
-| selectors | array of strings | | **Required** A list of selectors that identify or match this component.<br><br>For example:<br> ```selectors: [ "[data-uiw='textbox']" ],```|
+| vs | string or plain object | | **Optional** A string with the name of a build in value provider interface (eg: `"value"`, `"attr"`, `"hidden"`) or a plain object with a `getter` function and a `setter` function.<br><br>The signature of a `getter` function is `function(elm)` and must return a value.<br><br>The signature of a `setter` function is `function(elm, value)` and must return the elm passed to enable chaining. <br><br>You may use the `getter` or `setter` functions instead. |
+| propertyChanged | callback | function(name, oldValue, newValue) | **Optional**  Function called when the properties of a component have changed. This callback runs when an attribute is changed by a call to `component.set(n,v)` not when they are changed by `component.property(n,v)`. |
+| selectors | array of strings | | **Required** A list of selectors that identify or match this component.<br><br>For example:<br> `selectors: [ "[data-uiw='textbox']" ],` |
 | init | function | function(elm) | **Optional** Called to initialize the element. |
 | isContainer | boolean | | **Optional** Indicates that this component is a container for other components or HTML content. Default value is false. |
 | fn | plain object | | **Optional**  Additional functionality implemented by this component. The functions in this object will be added to the element. |
-| inherits| array of strings | | **Optional** Name of other components from where we get functionality.<br><br>Example: ```inherits: ['container']``` |
+| inherits| array of strings | | **Optional** Name of other components from where we get functionality.<br><br>Example: `inherits: ['container']` |
 | renderCompleted | callback | function(o) | **Optional**  An optional function called when an instance of this component was rendered. The function receives a jquery instance of the element.<br><br>This function should be used to perform post processing that requires you to have the DOM of the component created. You may add event listeners required to implements the component's behavior. |
 
 
@@ -66,9 +66,9 @@ EXC adds many extensions to the default JQUERY object that are available to any 
 
 The easiest way to add custom functionality to EXC's components is by extending built-in events.
 
-For example lets say we want buttons to have a confirmation prompt by just adding the property ```actionConfirm```.
+For example lets say we want buttons to have a confirmation prompt by just adding the property `actionConfirm`.
 
-We use the function ```exc.components.events.define()``` to register a pre-defined event handler that is available to components.
+We use the function `exc.components.events.define()` to register a pre-defined event handler that is available to components.
 
 ```JavaScript
 exc.components.events.define({
@@ -90,13 +90,13 @@ exc.components.events.define({
 });
 ```
 
-The definition indicates in which event we install our predefined handler. In our example we are listening to the ```click``` event. The event name ```"click"``` if followed by the namespace ```"actionConfirm"``` and the scope function ```"validation()"``` which tells EXC that our hook must be run as a validation prior to running any actual hooks listening to the ```click``` event.
+The definition indicates in which event we install our predefined handler. In our example we are listening to the `click` event. The event name `"click"` if followed by the namespace `"actionConfirm"` and the scope function `"validation()"` which tells EXC that our hook must be run as a validation prior to running any actual hooks listening to the `click` event.
 
-The definition object has an array of component names in ```applies``` to tell EXC which component may implement this event.
+The definition object has an array of component names in `applies` to tell EXC which component may implement this event.
 
-We use the ```apply()``` function of our definition to check if a particular "button" component has the property ```"actionConfirm"``` if so we tell EXC to add this event handler by returning ```true```.
+We use the `apply()` function of our definition to check if a particular "button" component has the property `"actionConfirm"` if so we tell EXC to add this event handler by returning `true`.
 
-The function ```callback``` in our definition is an actual callback that will be called when the button is clicked.
+The function `callback` in our definition is an actual callback that will be called when the button is clicked.
 
 
 
@@ -104,11 +104,11 @@ The function ```callback``` in our definition is an actual callback that will be
 
 | Name | Type | Declaration | Description |
 | -- | -- | -- | -- |
-| event | string | | **Required** Name of event handler. See ```$.onAction()``` in [JQUERY extensions](#this). |
-| applies | string or array of strings | | **Optional** Tells EXC what components may use these custom event. It may containg the string ```"*"``` to indicate any component, the name of a component, or an array with a list of component names. |
-| apply | function | function(comp) | **Optional** If present this function is called to determine if the event is applied. Return ```true``` to apply the event else return ```false```.
-| createCallback | function | function(comp) | **Optional**  A factory function to create the callback that will handle the event. This function must return a callback function with the signature ```function(event)```.
-| callback | callback | function(event) | **Optional** A static callback function that implements the actual event.<br><br>NOTE: If you implement ```createCallback``` in your definition, then ```callback``` will not be used. |
+| event | string | | **Required** Name of event handler. See `$.onAction()` in [JQUERY extensions](#this). |
+| applies | string or array of strings | | **Optional** Tells EXC what components may use these custom event. It may containg the string `"*"` to indicate any component, the name of a component, or an array with a list of component names. |
+| apply | function | function(comp) | **Optional** If present this function is called to determine if the event is applied. Return `true` to apply the event else return `false`. |
+| createCallback | function | function(comp) | **Optional**  A factory function to create the callback that will handle the event. This function must return a callback function with the signature `function(event)`. |
+| callback | callback | function(event) | **Optional** A static callback function that implements the actual event.<br><br>NOTE: If you implement `createCallback` in your definition, then `callback` will not be used. |
 
 ```JavaScript
 exc.components.events.define({
@@ -175,6 +175,7 @@ exc.ui.components.definitions["textbox"] = {
 ## Widget exc-toggle ##
 
 ### Definition of exc-toggle ###
+
 | Name | Type | Description |
 | -- | -- | -- |
 | name | string | **Required** Identifier of this widget. |
@@ -195,13 +196,14 @@ exc.ui.components.definitions["textbox"] = {
 
 | Property | Description |
 | -- | -- |
-| onChangePublish | Publishes a message, when the widget is changed.<br><br>Example: ```"onChangePublish":"checkEmpType"``` |
+| onChangePublish | Publishes a message, when the widget is changed.<br><br>Example: `"onChangePublish":"checkEmpType"` |
 
 
 
 ## Widget exc-textbox ##
 
 ### Definition of exc-textbox ###
+
 | Name | Type | Description |
 | -- | -- | -- |
 | name | string | **Required** Identifier of this widget. |
