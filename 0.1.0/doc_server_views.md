@@ -41,7 +41,7 @@ In the example above we have the placeholders `{{username}}`, `{{contents}}` and
 
 ### The default view ###
 
-An EXC app has a main view called the **default view**. You load a view as your default view using the method `createDefaultView(name)`:
+An EXC app has a main view called the **default view**. You load a view as your default using the method `createDefaultView(name)`:
 ```PHP
 $view = \exc\ui\views\manager::createDefaultView("myname");
 ```
@@ -56,7 +56,7 @@ Besides your default view you can have as many views as you need. You can have a
 
 You get another view by its name using the function `getView($name)`:
 ```PHP
-$view = \exc\ui\views\manager::getView("student_record");
+$view = \exc\ui\views\manager::getView("edit_form");
 ```
 
 ### Using your view in PHP ###
@@ -71,7 +71,7 @@ You can append to a placeholder with the `write($html)` method:
 $view->contents->write($someHTML);
 $view->contents->write($moreHTML);
 ```
-You can add the contents of another view using `write()`:
+Use `write()` to add the contents of another view:
 ```PHP
 $viewHeader = \exc\ui\views\manager::getView("record_header");
 $viewHeader->title->write("Welcome Jose");
@@ -107,7 +107,7 @@ Special framework values are available as @CONTANTS in your view file.
 | @CONTROLLER_DIRECTORY | Path to the folder with current controller. |
 
 
-Directives are another type of placeholders that make your view more flexible.
+Directives are another type of placeholders.
 
 Use the **#view** directive to include the contents of another view:
 ```HTML

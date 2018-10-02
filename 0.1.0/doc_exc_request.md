@@ -2,8 +2,8 @@
 [Documentation Index](./doc_index.md)<br>
 
 # Request Object #
-**Object:** exc.io.request[[br]]
-**File:** exc.io.js[[br]]
+**Object:** exc.io.request<br>
+**File:** exc.io.js<br>
 
 
 The request object provides the basic functionality to perform AJAX/REST requests and fetch content from servers.
